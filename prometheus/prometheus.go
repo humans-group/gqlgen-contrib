@@ -8,7 +8,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	prometheusclient "github.com/prometheus/client_golang/prometheus"
-	"github.com/vektah/gqlparser/gqlerror"
+	"github.com/vektah/gqlparser/v2/gqlerror"
 )
 
 const (
@@ -98,7 +98,6 @@ func (Metrics) InterceptField(ctx context.Context, next graphql.Resolver) (res i
 }
 
 func (Metrics) InterceptResponse(ctx context.Context, next graphql.ResponseHandler) (res *graphql.Response) {
-
 	opCtx := graphql.GetOperationContext(ctx)
 
 	defer func(start time.Time) {
