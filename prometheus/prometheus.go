@@ -14,9 +14,8 @@ import (
 const (
 	existStatusFailure = "failure"
 	exitStatusSuccess  = "success"
+	errCodeExt         = "error_code"
 )
-
-const errCodeExt = "error_code"
 
 var (
 	requestStartedCounter    prometheusclient.Counter
