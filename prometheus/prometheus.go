@@ -80,12 +80,10 @@ func (Metrics) InterceptField(ctx context.Context, next graphql.Resolver) (res i
 		}
 
 		var errCode string
-		if err != nil {
-			var gqlErr *gqlerror.Error
-			if errors.As(err, &gqlErr) {
-				if errCodeVal, ok := gqlErr.Extensions[errCodeExt]; ok {
-					errCode = fmt.Sprint(errCodeVal)
-				}
+		var gqlErr *gqlerror.Error
+		if err != nil && errors.As(err, &gqlErr) {
+			if errCodeVal, ok := gqlErr.Extensions[errCodeExt]; ok {
+				errCode = fmt.Sprint(errCodeVal)
 			}
 		}
 
